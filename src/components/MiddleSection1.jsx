@@ -171,8 +171,8 @@ function MiddleSection1() {
     <div className="w-[100%] bg-[#F5E1C6] pb-5 ">
       <div className="w-[90%] mx-auto relative">
         <div className="grid grid-cols-3 bg-[#eacc95] w-[65%] absolute top-[-30px] px-3 rounded-md ">
-          {programData.map(({ id, title, des, key }) => (
-            <div className="text-black flex flex-col p-3" key={id}>
+          {programData.map(({ id, title, des}) => (
+            <div  className="text-black flex flex-col p-3" key={id}>
               <p className="text-red-700 font-bold text-xl">{title}</p>
               <p className="text-red-700  text-xl">{des}</p>
             </div>
@@ -202,7 +202,7 @@ function MiddleSection1() {
           </p>
           <div className="flex justify-around w-[95%] mx-auto">
             {careerBenefitsData.map(({ title, des, id }) => (
-              <div className="text-white flex flex-col bg-green-500 px-5 py-5 rounded-sm">
+              <div key={id} className="text-white flex flex-col bg-green-500 px-5 py-5 rounded-sm">
                 <p className="text-sm text-gray-300">{title}</p>
                 <p className="font-bold text-lg">{des}</p>
               </div>
@@ -211,7 +211,7 @@ function MiddleSection1() {
 
           <div className="grid grid-cols-6 w-[95%] mx-auto gap-y-2 mt-3 pl-3 ">
             {Array.from({ length: 18 }, (_, i) => i).map(() => (
-              <div className="bg-white   h-[100px] w-[100px] flex justify-center items-center rounded-sm  ">
+              <div key={i} className="bg-white   h-[100px] w-[100px] flex justify-center items-center rounded-sm  ">
                 <Image src={require("../Assets/Images/dummy.svg")} />
               </div>
             ))}
@@ -223,15 +223,15 @@ function MiddleSection1() {
             Learning via sprints
           </p>
           <div>
-            {Object.entries(listData).map((item) => (
-              <div>
+            {Object.entries(listData).map((item,ind) => (
+              <div key={ind}>
                 <p className="font-bold text-2xl text-red-700">{item[0]}</p>
                 <div className="w-[100%] h-[1px] bg-black"></div>
-                {item[1].map((element) => (
-                  <>
+                {item[1].map((element ,ind) => (
+                  <div key={ind}>
                     <p className="text-black text-sm">{element}</p>
                     <div className="w-[100%] border-dotted border-[1px] border-black"></div>
-                  </>
+                </div>
                 ))}
               </div>
             ))}
@@ -248,7 +248,7 @@ function MiddleSection1() {
 
           <div className="grid grid-cols-4 gap-x-7 gap-3 px-3">
             {facultyData.map(({ name, position, id }) => (
-              <div>
+              <div key={id}>
                 <div className="relative">
                   <Image
                     className="h-[100px] w-[100px]"
@@ -293,7 +293,7 @@ function MiddleSection1() {
           <p className="text-red-700 font-bold text-2xl">Backed By the best</p>
           <div className="flex mt-5">
             {clientsData.map(({ id, name, position }) => (
-              <div>
+              <div key={id}>
                 <Image
                   className="h-[50px] w-[50px] mx-auto"
                   src={require("../Assets/Images/profile.webp")}
