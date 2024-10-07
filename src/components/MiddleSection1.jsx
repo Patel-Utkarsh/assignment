@@ -185,8 +185,9 @@ function MiddleSection1() {
               Featured In
             </p>
             <div className="flex px-4 justify-around mt-5">
-              {Array.from({ length: 4 }, (_, i) => i).map((elment) => (
+              {Array.from({ length: 4 }, (_, i) => i).map((elment,ind) => (
                 <Image
+                    key={ind}
                   id={elment}
                   className="h-full w-[120px]"
                   src={require("../Assets/Images/dummy.svg")}
@@ -210,8 +211,8 @@ function MiddleSection1() {
           </div>
 
           <div className="grid grid-cols-6 w-[95%] mx-auto gap-y-2 mt-3 pl-3 ">
-            {Array.from({ length: 18 }, (_, i) => i).map(() => (
-              <div key={i} className="bg-white   h-[100px] w-[100px] flex justify-center items-center rounded-sm  ">
+            {Array.from({ length: 18 }, (_, i) => i).map((element,ind) => (
+              <div key={ind} className="bg-white   h-[100px] w-[100px] flex justify-center items-center rounded-sm  ">
                 <Image src={require("../Assets/Images/dummy.svg")} />
               </div>
             ))}
